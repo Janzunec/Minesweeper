@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap');
+@font-face {
+	font-family: 'digital-7';
+	src: url('digital-7/digital-7.ttf');
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	/* font-family: 'Orbitron', sans-serif; */
+	font-family: 'Digital-7', arial;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background: linear-gradient(
+		340deg,
+		#c200ae,
+		#c200ae,
+		#135fab,
+		black,
+		black,
+		black
+	) !important;
+	background-position: center;
+	background-size: contain;
+	background-attachment: fixed;
+}
+.difficulty {
+	width: 410px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 5px 0;
+	background-color: rgb(175, 175, 175);
+	border-bottom: rgb(220, 220, 220) 4px solid;
+	border-right: rgb(220, 220, 220) 4px solid;
+	border-top: rgb(119, 119, 119) 4px solid;
+	border-left: rgb(119, 119, 119) 4px solid;
+}
+.difficulty div {
+	height: 40px;
+	width: 100px;
+	font-size: 20px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(175, 175, 175);
+	border-top: rgb(220, 220, 220) 4px solid;
+	border-left: rgb(220, 220, 220) 4px solid;
+	border-bottom: rgb(119, 119, 119) 4px solid;
+	border-right: rgb(119, 119, 119) 4px solid;
+}
+.difficulty div:active {
+	background-color: rgb(159, 159, 159);
+	border-top: rgb(94, 94, 94) 4px solid;
+	border-left: rgb(94, 94, 94) 4px solid;
+	border-bottom: rgb(94, 94, 94) 2px solid;
+	border-right: rgb(94, 94, 94) 2px solid;
+}
+.easy {
+	color: green;
+}
+.medium {
+	color: blue;
+}
+.hard {
+	color: red;
+}
+.container {
+	width: 425px;
+	background-color: rgb(175, 175, 175);
+	border-top: rgb(220, 220, 220) 4px solid;
+	border-left: rgb(220, 220, 220) 4px solid;
+	border-bottom: rgb(119, 119, 119) 4px solid;
+	border-right: rgb(119, 119, 119) 4px solid;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2px;
+}
+.board {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px 18px;
+	width: 410px;
+	height: 60px;
+	font-size: 30px;
+	background-color: rgb(175, 175, 175);
+	border-bottom: rgb(220, 220, 220) 4px solid;
+	border-right: rgb(220, 220, 220) 4px solid;
+	border-top: rgb(119, 119, 119) 4px solid;
+	border-left: rgb(119, 119, 119) 4px solid;
+	margin-bottom: 10px;
+}
+.mines {
+	width: 70px;
+	text-align: center;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(0, 68, 0);
+	border-top: rgb(119, 119, 119) 2px solid;
+	border-left: rgb(119, 119, 119) 2px solid;
+	border-bottom: rgb(220, 220, 220) 2px solid;
+	border-right: rgb(220, 220, 220) 2px solid;
+}
+.numbers1 {
+	z-index: 10;
+	color: rgb(0, 171, 0);
+	width: 70px;
+	/* margin-top: 3px; */
+}
+.placeholder1 {
+	z-index: 1;
+	position: absolute;
+	color: rgba(0, 100, 0, 0.371);
+	top: 0;
+	/* transform: translateX(14px); */
+	text-align: center;
+}
+.numbers {
+	z-index: 10;
+	color: rgb(0, 155, 0);
+	width: 70px;
+	/* margin-left: 5px; */
+}
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	gap: 5px;
+	padding-left: 4px;
+}
+.time {
+	width: fit-content;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding-top: 3px;
+	background-color: rgb(0, 68, 0);
+	border-top: rgb(119, 119, 119) 2px solid;
+	border-left: rgb(119, 119, 119) 2px solid;
+	border-bottom: rgb(220, 220, 220) 2px solid;
+	border-right: rgb(220, 220, 220) 2px solid;
+}
+/* .placeholder {
+	z-index: 1;
+	position: absolute;
+	color: rgba(0, 100, 0, 0.371);
+	top: 0;
+	transform: translateX(5px);
+	text-align: center;
+} */
+.field {
+	width: 410px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(175, 175, 175);
+	border-bottom: rgb(220, 220, 220) 4px solid;
+	border-right: rgb(220, 220, 220) 4px solid;
+	border-top: rgb(119, 119, 119) 4px solid;
+	border-left: rgb(119, 119, 119) 4px solid;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+}
+.space {
+	width: 40px;
+	height: 40px;
+	font-size: 30px;
+	text-align: center;
+	background-color: rgb(190, 190, 190);
+	border-top: rgb(220, 220, 220) 3px solid;
+	border-left: rgb(220, 220, 220) 3px solid;
+	border-bottom: rgb(119, 119, 119) 3px solid;
+	border-right: rgb(119, 119, 119) 3px solid;
+	margin: 0;
+}
+.space:active {
+	background-color: rgb(175, 175, 175);
+	border: none;
+}
+.clicked {
+	background-color: rgb(175, 175, 175);
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding-top: 2px;
+}
+.bomb {
+	background-color: red;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding-top: 2px;
+}
+.blink {
+	animation: blinking 1s infinite;
+}
+.flagged {
+	font-size: 20px;
+}
+.reset,
+.flag {
+	font-size: 28px;
+	background-color: rgb(190, 190, 190);
+	border-top: rgb(220, 220, 220) 2px solid;
+	border-left: rgb(220, 220, 220) 2px solid;
+	border-bottom: rgb(119, 119, 119) 2px solid;
+	border-right: rgb(119, 119, 119) 2px solid;
+	padding-bottom: 2px;
+}
+.reset:active,
+.flag:active {
+	background-color: rgb(159, 159, 159);
+	border-top: rgb(94, 94, 94) 3px solid;
+	border-left: rgb(94, 94, 94) 3px solid;
+	border-bottom: rgb(94, 94, 94) 1px solid;
+	border-right: rgb(94, 94, 94) 1px solid;
+}
+.reset {
+	margin-right: 5px;
+}
+.flag {
+	margin-left: 5px;
+}
+.flagging {
+	background-color: rgb(159, 159, 159);
+	border-top: rgb(94, 94, 94) 3px solid;
+	border-left: rgb(94, 94, 94) 3px solid;
+	border-bottom: rgb(94, 94, 94) 1px solid;
+	border-right: rgb(94, 94, 94) 1px solid;
+}
+
+@keyframes blinking {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 1;
+	}
+	51% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@media screen and (max-width: 600px) {
+	.container {
+		width: 340px;
+	}
+	.difficulty {
+		width: 330px;
+	}
+	.difficulty div {
+		width: 80;
+	}
+	.board {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: 5px 10px;
+		width: 330px;
+		height: 60px;
+		font-size: 30px;
+		background-color: rgb(175, 175, 175);
+		border-bottom: rgb(220, 220, 220) 4px solid;
+		border-right: rgb(220, 220, 220) 4px solid;
+		border-top: rgb(119, 119, 119) 4px solid;
+		border-left: rgb(119, 119, 119) 4px solid;
+		margin-bottom: 10px;
+	}
+	.mines {
+		width: 70px;
+		height: 35px;
+		text-align: center;
+		position: relative;
+		background-color: rgb(0, 68, 0);
+		border-top: rgb(119, 119, 119) 2px solid;
+		border-left: rgb(119, 119, 119) 2px solid;
+		border-bottom: rgb(220, 220, 220) 2px solid;
+		border-right: rgb(220, 220, 220) 2px solid;
+	}
+	.numbers1 {
+		z-index: 10;
+		color: rgb(0, 171, 0);
+		width: 70px;
+		height: 35px;
+	}
+	.numbers {
+		width: 70px;
+		height: 35px;
+		/* margin-left: 5px; */
+	}
+	.buttons {
+		width: fit-content;
+		gap: 10px;
+	}
+	.time {
+		width: fit-content;
+		height: 35px;
+	}
+	.field {
+		width: 330px;
+	}
+	.space {
+		width: 32px;
+		height: 32px;
+		font-size: 22px;
+		text-align: center;
+		background-color: rgb(190, 190, 190);
+		border-top: rgb(220, 220, 220) 3px solid;
+		border-left: rgb(220, 220, 220) 3px solid;
+		border-bottom: rgb(119, 119, 119) 3px solid;
+		border-right: rgb(119, 119, 119) 3px solid;
+		margin: 0;
+	}
+	.space:active {
+		background-color: rgb(175, 175, 175);
+		border: none;
+	}
+	.clicked {
+		background-color: rgb(175, 175, 175);
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		padding-top: 2px;
+	}
+	.bomb {
+		background-color: red;
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		padding-top: 2px;
+	}
+	.blink {
+		animation: blinking 1s infinite;
+	}
+	.flagged {
+		font-size: 17px;
+	}
+	.reset,
+	.flag {
+		font-size: 26px;
+	}
+}
